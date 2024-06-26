@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran Mahasiswa Baru</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        textarea,
+        select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="date"]:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        label {
+            margin-right: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .form-group label {
+            margin-right: 10px;
+            white-space: nowrap;
+        }
+
+        .form-group input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .form-group select,
+        .form-group textarea {
+            margin-top: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .submit-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .submit-container input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .submit-container input[type="submit"]:active {
+            background-color: #003f7f;
+        }
+
+        /* Add pseudo-selectors for table rows and columns */
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        td:first-child {
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* Add styles for invalid inputs */
+        input:invalid {
+            border-color: #dc3545;
+        }
+
+        input:valid {
+            border-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Formulir Pendaftaran Mahasiswa Baru</h1>
+        <form>
+            <table>
+                <tr>
+                    <td>NIK</td>
+                    <td><input type="number" name="NIK" required></td>
+                </tr>
+                <tr>
+                    <td>Nama Lengkap</td>
+                    <td><input type="text" name="nama_lengkap" required></td>
+                </tr>
+                <tr>
+                    <td>Tempat Lahir</td>
+                    <td><input type="text" name="tempat_lahir" required></td>
+                </tr>
+                <tr>
+                    <td>Tanggal Lahir</td>
+                    <td><input type="date" name="tanggal_lahir" required></td>
+                </tr>
+                <tr>
+                    <td>Jenis Kelamin</td>
+                    <td class="form-group">
+                        <input type="radio" id="lk" name="jenis_kelamin" value="lk" required>
+                        <label for="lk">Laki-laki</label>
+                        <input type="radio" id="pr" name="jenis_kelamin" value="pr">
+                        <label for="pr">Perempuan</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td class="form-group">
+                        <input type="radio" id="mn" name="status" value="menikah" required>
+                        <label for="mn">Menikah</label>
+                        <input type="radio" id="bn" name="status" value="belum menikah">
+                        <label for="bn">Belum Menikah</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Agama</td>
+                    <td class="form-group">
+                        <input type="radio" id="is" name="agama" value="islam" required>
+                        <label for="is">Islam</label>
+                        <input type="radio" id="kr" name="agama" value="kristen">
+                        <label for="kr">Kristen</label>
+                        <input type="radio" id="bd" name="agama" value="budha">
+                        <label for="bd">Budha</label>
+                        <input type="radio" id="hd" name="agama" value="hindu">
+                        <label for="hd">Hindu</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Alat Transportasi</td>
+                    <td>
+                        <select name="alat_transportasi" required>
+                            <option value="jalan kaki">Jalan Kaki</option>
+                            <option value="naik kapal">Naik Kapal</option>
+                            <option value="terjun parasut">Terjun Parasut</option>
+                            <option value="angkutan umum">Angkutan Umum</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jenis Tinggal</td>
+                    <td>
+                        <select name="jenis_tinggal" required>
+                            <option value="orang tua">Orang Tua</option>
+                            <option value="ngepunk">Ngepung</option>
+                            <option value="hotel">Hotel</option>
+                            <option value="kolong jembatan">Kolong Jembatan</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Penerima KPS</td>
+                    <td>
+                        <select name="penerima_kps" required>
+                            <option value="iya">Iya</option>
+                            <option value="tidak">Tidak</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kewarganegaraan</td>
+                    <td>
+                        <select name="kewarganegaraan" required>
+                            <option value="wni">WNI</option>
+                            <option value="wna">WNA</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Alamat Lengkap Sesuai KTP</td>
+                    <td><textarea name="alamat_lengkap" cols="30" rows="4" required></textarea></td>
+                </tr>
+                <tr>
+                    <td>RT/RW</td>
+                    <td><input type="text" name="rt" required> <input type="text" name="rw" required></td>
+                </tr>
+                <tr>
+                    <td>Kode Pos</td>
+                    <td><input type="number" name="kode_pos" required></td>
+                </tr>
+                <tr>
+                    <td>Kel/Desa</td>
+                    <td><input type="text" name="kel_desa" required></td>
+                </tr>
+                <tr>
+                    <td>Dusun</td>
+                    <td><input type="text" name="dusun" required></td>
+                </tr>
+                <tr>
+                    <td>Kecamatan</td>
+                    <td><input type="text" name="kecamatan" required></td>
+                </tr>
+                <tr>
+                    <td>NPWP</td>
+                    <td><input type="text" name="npwp" required></td>
+                </tr>
+                <tr>
+                    <td>Telepon</td>
+                    <td><input type="number" name="telepon" required></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="text" name="email" required></td>
+                </tr>
+                <tr>
+                    <td>Asal Sekolah</td>
+                    <td><input type="text" name="asal_sekolah" required></td>
+                </tr>
+                <tr>
+                    <td>NISN</td>
+                    <td><input type="number" name="nisn" required></td>
+                </tr>
+                <tr>
+                    <td>Jurusan</td>
+                    <td><input type="text" name="jurusan" required></td>
+                </tr>
+                <tr>
+                    <td>Alamat</td>
+                    <td><input type="text" name="alamat" required></td>
+                </tr>
+                <tr>
+                    <td>Program Studi</td>
+                    <td class="form-group">
+                        <input type="radio" id="si" name="program_studi" value="sistem informasi" required>
+                        <label for="si">Sistem Informasi</label>
+                        <input type="radio" id="mi" name="program_studi" value="manajemen informatika">
+                        <label for="mi">Manajemen Informatika</label>
+                        <input type="radio" id="ti" name="program_studi" value="teknik informatika">
+                        <label for="ti">Teknik Informatika</label>
+                        <input type="radio" id="ka" name="program_studi" value="komputerisasi akuntansi">
+                        <label for="ka">Komputerisasi Akuntansi</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Waktu Belajar</td>
+                    <td class="form-group">
+                        <input type="radio" id="pg" name="waktu_belajar" value="pagi" required>
+                        <label for="pg">Pagi</label>
+                        <input type="radio" id="tm" name="waktu_belajar" value="tengah malam">
+                        <label for="tm">Tengah Malam</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pilihan Kelas</td>
+                    <td class="form-group">
+                        <input type="radio" id="rgl" name="pilihan_kelas" value="reguler" required>
+                        <label for="rgl">Reguler</label>
+                        <input type="radio" id="kry" name="pilihan_kelas" value="karyawan">
+                        <label for="kry">Karyawan</label>
+                        <input type="radio" id="kip" name="pilihan_kelas" value="kip kuliah">
+                        <label for="kip">KIP Kuliah</label>
+                    </td>
+                </tr>
+            </table>
+            <div class="submit-container">
+                <input type="submit" value="Daftar">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
